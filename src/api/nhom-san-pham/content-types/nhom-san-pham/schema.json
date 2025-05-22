@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_groups",
+  "info": {
+    "singularName": "nhom-san-pham",
+    "pluralName": "product-groups",
+    "displayName": "Nhóm sản phẩm"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "product_categories": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-category.product-category",
+      "mappedBy": "product_group"
+    }
+  }
+}
