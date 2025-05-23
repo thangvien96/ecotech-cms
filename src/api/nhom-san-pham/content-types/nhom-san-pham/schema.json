@@ -22,6 +22,10 @@
       "relation": "oneToMany",
       "target": "api::product-category.product-category",
       "mappedBy": "product_group"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }

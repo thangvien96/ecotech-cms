@@ -28,6 +28,10 @@
       "relation": "manyToOne",
       "target": "api::nhom-san-pham.nhom-san-pham",
       "inversedBy": "product_categories"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }
