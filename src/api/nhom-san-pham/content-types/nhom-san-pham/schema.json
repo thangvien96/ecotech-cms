@@ -4,7 +4,8 @@
   "info": {
     "singularName": "nhom-san-pham",
     "pluralName": "product-groups",
-    "displayName": "Nhóm sản phẩm"
+    "displayName": "Nhóm sản phẩm",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,7 +19,7 @@
     },
     "product_categories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::product-category.product-category",
       "mappedBy": "product_group"
     }

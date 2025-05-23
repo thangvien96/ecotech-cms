@@ -437,6 +437,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiNhomSanPhamNhomSanPham extends Struct.CollectionTypeSchema {
   collectionName: 'product_groups';
   info: {
+    description: '';
     displayName: 'Nh\u00F3m s\u1EA3n ph\u1EA9m';
     pluralName: 'product-groups';
     singularName: 'nhom-san-pham';
@@ -457,7 +458,7 @@ export interface ApiNhomSanPhamNhomSanPham extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     product_categories: Schema.Attribute.Relation<
-      'oneToOne',
+      'oneToMany',
       'api::product-category.product-category'
     >;
     publishedAt: Schema.Attribute.DateTime;
@@ -500,6 +501,7 @@ export interface ApiProductCategoryProductCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_categories';
   info: {
+    description: '';
     displayName: 'Danh m\u1EE5c';
     pluralName: 'product-categories';
     singularName: 'product-category';
@@ -520,10 +522,10 @@ export interface ApiProductCategoryProductCategory
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
     product_group: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::nhom-san-pham.nhom-san-pham'
     >;
-    products: Schema.Attribute.Relation<'oneToOne', 'api::product.product'>;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -560,7 +562,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
     product_category: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'api::product-category.product-category'
     >;
     publishedAt: Schema.Attribute.DateTime;

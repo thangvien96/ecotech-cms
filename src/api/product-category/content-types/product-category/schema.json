@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product-category",
     "pluralName": "product-categories",
-    "displayName": "Danh mục"
+    "displayName": "Danh mục",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,17 +17,17 @@
     "description": {
       "type": "text"
     },
-    "product_group": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::nhom-san-pham.nhom-san-pham",
-      "inversedBy": "product_categories"
-    },
     "products": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "product_category"
+    },
+    "product_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::nhom-san-pham.nhom-san-pham",
+      "inversedBy": "product_categories"
     }
   }
 }
